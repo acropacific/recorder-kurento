@@ -1,5 +1,5 @@
 // Load required modules
-var port     =  443;
+var port     =  8448;
 var https    = require("https");              // http server core module
 var express  = require("express");           // web framework external module
 var io       = require("socket.io");         // web socket external module
@@ -11,9 +11,9 @@ httpApp.use(express.static(__dirname + "/static/"));
 
 var fs = require('fs');
 var options = {
-    key: fs.readFileSync('/home/ubuntu/kurento-recorder/cert/alphassl.key'),
-    cert: fs.readFileSync('/home/ubuntu/kurento-recorder/cert/alphassl.crt'),
-    ca: fs.readFileSync('/home/ubuntu/kurento-recorder/cert/trainybee.com.chain.crt')
+    key: fs.readFileSync('/root/gv/recorder/cert/alphassl.key'),
+    cert: fs.readFileSync('/root/gv/recorder/cert/alphassl.crt'),
+    ca: fs.readFileSync('/root/gv/recorder/cert/trainybee.com.chain.crt')
 };
 // Start Express http server on port 90
 var webServer = https.createServer(options, httpApp).listen(port);
